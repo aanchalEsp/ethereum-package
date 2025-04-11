@@ -52,7 +52,7 @@ def get_config(
         + constants.GENESIS_CONFIG_MOUNT_PATH_ON_CONTAINER
         + "/config.yaml",
         "--beaconNodes=" + beacon_http_url,
-        "--suggestedFeeRecipient=" + constants.VALIDATING_REWARDS_ACCOUNT,
+        "--suggestedFeeRecipient=",
         # vvvvvvvvvvvvvvvvvvv PROMETHEUS CONFIG vvvvvvvvvvvvvvvvvvvvv
         "--metrics",
         "--metrics.address=0.0.0.0",

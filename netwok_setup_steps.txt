@@ -1,0 +1,130 @@
+ Step-by-Step Summary:
+🔨 Build Lighthouse Client
+
+Compiles Lighthouse from source using Rust.
+
+Creates a custom Docker image lighthouse:local.
+
+🧪 Setup Kurtosis Environment
+
+Creates an isolated environment (enclave) called local-testnet using Kurtosis.
+
+This is where all nodes and services run.
+
+📦 Prepare Required Docker Images
+
+Loads all necessary images:
+
+geth for execution layer,
+
+lighthouse for consensus & validator,
+
+prometheus, grafana, and others for monitoring,
+
+eth2-val-tools for validator key creation.
+
+🔐 Upload Secrets
+
+Uploads jwtsecret (for EL ↔ CL secure connection).
+
+Uploads keymanager.txt (likely for managing validator keys).
+
+📡 Configure the Test Network
+
+Defines network parameters like:
+
+Fork epochs (Altair, Bellatrix, etc.),
+
+Deposit contract,
+
+Block time (seconds_per_slot = 3),
+
+Number of validators (256 split across 4 nodes).
+
+🔑 Generate Validator Keys
+
+Uses eth2-val-tools to generate validator key stores.
+
+Creates 256 keys and splits them across 4 groups of 64.
+
+Saves them as file artifacts for later use.
+
+🔒 Store Validator Password
+
+Stores a password file used to unlock validator keystores (optional but common).
+
+⏱ Set Genesis Time
+
+Defines when the chain will officially start producing blocks (genesis timestamp).
+
+🛠 Generate Final Configs
+
+Prepares and renders configuration files that will be used to start Geth + Lighthouse together in sync.
+
+✅ 1. Setup & Checkpoints
+Checks if a genesis.json file already exists.
+
+Prepares directories for metadata, parsed data, and temporary files.
+
+🏗️ 2. Create the EL Genesis File
+Uses generate_genesis.sh to:
+
+Add support for Bellatrix, Capella, Deneb forks.
+
+Include system contracts:
+
+Custom contract: 0x4242...4242
+
+EIP-4788 contract: 0x000F...ac02
+
+Allocate ETH to premine wallets from:
+
+A mnemonic
+
+Static addresses
+
+Add any extra contracts listed in /opt/additional-contracts.json.
+
+🧠 3. Timestamp & Environment Setup
+Converts UNIX timestamp 1744281728 to human-readable format:
+2025-Apr-10 10:42:08 AM UTC
+
+Sets environment variables like MAX_REQUEST_BLOB_SIDECARS_ELECTRA=1152.
+
+🔨 4. Generate the CL Genesis State
+Builds the Beacon chain genesis state using:
+
+eth-beacon-genesis tool
+
+Inputs:
+
+config.yaml
+
+genesis.json (execution config)
+
+Generated mnemonic (for validator keys)
+
+It creates:
+
+genesis.ssz: raw state file
+
+parsedConsensusGenesis.json: JSON version
+
+📦 5. Validators Created
+Generates 256 validators
+
+Each gets 32 ETH → Total: 8192 ETH
+
+Sets the fork version and genesis time.
+
+Outputs:
+
+Genesis block number: 0
+
+Genesis block hash:
+0xda346f9b79b166895ba8c6e4997b74bc70e8df6d21dedeee51f1918db9c9d6a4
+
+🔐 6. JWT Secret & Terminal Difficulty
+Generates JWT secret for EL-CL communication.
+
+Extracts terminalTotalDifficulty from genesis JSON → sets it to 0.

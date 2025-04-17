@@ -39,7 +39,7 @@ def get_config(
         "--chain-config-file="
         + constants.GENESIS_CONFIG_MOUNT_PATH_ON_CONTAINER
         + "/config.yaml",
-        "--suggested-fee-recipient=",
+        "--suggested-fee-recipient=" + constants.VALIDATING_REWARDS_ACCOUNT,
         "--beacon-rpc-provider=" + cl_context.beacon_grpc_url,
         "--beacon-rest-api-provider=" + beacon_http_url,
         # vvvvvvvvvvvvvvvvvvv METRICS CONFIG vvvvvvvvvvvvvvvvvvvvv

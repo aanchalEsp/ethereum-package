@@ -38,7 +38,8 @@ def get_config(
         + constants.GENESIS_CONFIG_MOUNT_PATH_ON_CONTAINER
         + "/config.yaml",
         "--beacon-node-api-endpoint=" + beacon_http_url,
-        "--validators-proposer-default-fee-recipient=",
+        "--validators-proposer-default-fee-recipient="
+        + constants.VALIDATING_REWARDS_ACCOUNT,
         "--validators-graffiti=" + full_name,
         # vvvvvvvvvvvvvvvvvvv METRICS CONFIG vvvvvvvvvvvvvvvvvvvvv
         "--metrics-enabled=true",

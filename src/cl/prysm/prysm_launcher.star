@@ -209,7 +209,7 @@ def get_beacon_config(
         "--min-sync-peers={0}".format(MIN_PEERS),
         "--verbosity=" + log_level,
         "--slots-per-archive-point={0}".format(32 if constants.ARCHIVE_MODE else 8192),
-        "--suggested-fee-recipient=",
+        "--suggested-fee-recipient=" + constants.VALIDATING_REWARDS_ACCOUNT,
         "--jwt-secret=" + constants.JWT_MOUNT_PATH_ON_CONTAINER,
         # vvvvvvvvv METRICS CONFIG vvvvvvvvvvvvvvvvvvvvv
         "--disable-monitoring=false",

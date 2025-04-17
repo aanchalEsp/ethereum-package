@@ -34,7 +34,7 @@ def get_config(
 
     cmd = [
         "--beacon-node=" + beacon_http_url,
-        "--suggested-fee-recipient=",
+        "--suggested-fee-recipient=" + constants.VALIDATING_REWARDS_ACCOUNT,
         # vvvvvvvvvvvvvvvvvvv METRICS CONFIG vvvvvvvvvvvvvvvvvvvvv
         "--metrics",
         "--metrics-address=0.0.0.0",

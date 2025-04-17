@@ -249,7 +249,7 @@ def get_beacon_config(
     validator_default_cmd = [
         "--validators-dir=" + validator_keys_dirpath,
         "--secrets-dir=" + validator_secrets_dirpath,
-        "--suggested-fee-recipient=",
+        "--suggested-fee-recipient=" + constants.VALIDATING_REWARDS_ACCOUNT,
         "--graffiti=" + full_name,
     ]
 

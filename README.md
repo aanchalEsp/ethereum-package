@@ -495,7 +495,7 @@ network_params:
   seconds_per_slot: 12
 
   # The number of validator keys that each CL validator node should get
-  num_validator_keys_per_node: 32
+  num_validator_keys_per_node: 2
 
   # This mnemonic will a) be used to create keystores for all the types of validators that we have and b) be used to generate a CL genesis.ssz that has the children
   # validator keys already preregistered as validators

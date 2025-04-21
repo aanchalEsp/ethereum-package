@@ -67,7 +67,7 @@ MEV_BOOST_PORT = 18550
 MEV_BOOST_SERVICE_NAME_PREFIX = "mev-boost"
 
 # Minimum number of validators required for a network to be valid is 64
-MIN_VALIDATORS = 64
+MIN_VALIDATORS = 32
 
 DEFAULT_ADDITIONAL_SERVICES = []
 
@@ -915,7 +915,7 @@ def default_network_params():
         "network_id": "312222",
         "deposit_contract_address": "0x4242424242424242424242424242424242424242",
         "seconds_per_slot": 12,
-        "num_validator_keys_per_node": 64,
+        "num_validator_keys_per_node": 32,
         "preregistered_validator_keys_mnemonic": constants.DEFAULT_MNEMONIC,
         "preregistered_validator_count": 0,
         "genesis_delay": 20,
@@ -959,7 +959,7 @@ def default_minimal_network_params():
         "network_id": "312222",
         "deposit_contract_address": "0x4242424242424242424242424242424242424242",
         "seconds_per_slot": 6,
-        "num_validator_keys_per_node": 64,
+        "num_validator_keys_per_node": 32,
         "preregistered_validator_keys_mnemonic": constants.DEFAULT_MNEMONIC,
         "preregistered_validator_count": 0,
         "genesis_delay": 20,
@@ -969,7 +969,7 @@ def default_minimal_network_params():
         "ejection_balance": 16000000000,
         "eth1_follow_distance": 16,
         "min_validator_withdrawability_delay": 256,
-        "shard_committee_period": 64,
+        "shard_committee_period": 32,
         "altair_fork_epoch": 0,
         "bellatrix_fork_epoch": 0,
         "capella_fork_epoch": 0,

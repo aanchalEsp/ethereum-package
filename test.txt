@@ -703,7 +703,7 @@ tarlark code successfully run. Output was:
 		"network": "kurtosis",
 		"network_id": "312222",
 		"network_sync_base_url": "https://snapshots.ethpandaops.io/",
-		"num_validator_keys_per_node": 2,
+		"num_validator_keys_per_node": 3,
 		"perfect_peerdas_enabled": false,
 		"prefunded_accounts": {},
 		"preregistered_validator_count": 0,
